@@ -23,7 +23,7 @@ android.permissions = INTERNET
 android.api = 31
 android.minapi = 21
 android.sdk = 31
-android.ndk = 28b
+android.ndk = 27c
 
 # Build settings
 fullscreen = 0
