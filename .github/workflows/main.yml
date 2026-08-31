@@ -23,11 +23,6 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
-        with:
-          packages: 'platform-tools platforms;android-31 build-tools;31.0.0'
-
       - name: Install system dependencies
         run: |
           sudo apt-get update
@@ -39,6 +34,11 @@ jobs:
 
       - name: Build APK
         run: echo y | buildozer -v android debug
+        env:
+          ANDROID_HOME: /usr/local/lib/android/sdk
+          ANDROID_SDK_ROOT: /usr/local/lib/android/sdk
+          ANDROID_NDK_HOME: /usr/local/lib/android/sdk/ndk/27.3.13750724
+          ANDROID_NDK_ROOT: /usr/local/lib/android/sdk/ndk/27.3.13750724
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v5
